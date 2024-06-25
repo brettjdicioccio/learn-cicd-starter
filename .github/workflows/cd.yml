@@ -1,3 +1,5 @@
+name: cd
+
 on:
   push:
     branches: [main]
@@ -6,7 +8,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 30
 
     steps:
       - name: Check out code
@@ -17,5 +18,5 @@ jobs:
         with:
           go-version: '1.22'
 
-      - name: Build
-        run: scripts/buildprod.sh
+      - name: Build app
+        run: ./scripts/buildprod.sh
